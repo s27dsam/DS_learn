@@ -1,0 +1,130 @@
+person token key
+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
+
+
+week 1
+#include <cs50.h>
+#include <stdio.h>
+
+int main(void)
+{
+    string name = get_string("what is your name? ");
+    printf("hello, %s\n", name);
+}
+_______________________________________________________
+
+#include <cs50.h>
+#include <stdio.h>
+
+int main()
+
+{
+    int start; 
+    do
+    {
+        start = get_int("start size: ");
+    }
+    while (start < 9);
+    
+    int end; 
+    do
+    {
+        end = get_int("end size: ");
+    }
+    while (end < start);
+    
+    int years = 0;
+    
+    while (start < end)
+    {
+        start = start + (start / 3) - (start / 4);
+        years++;
+    }
+    printf("Years: %i\n", years);
+}
+_______________________________________________________________
+mario.c
+
+#include <cs50.h>
+#include <stdio.h>
+
+int main(void)
+{
+    int n; 
+    do
+    {
+        //user input
+        n = get_int("height: ");
+    } while (n < 1 || n > 8);
+    
+    for(int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            if (i + j < n - 1)
+                printf(" ");
+            else
+                printf("#"); 
+        }
+    printf("\n");
+    }
+}  
+___________________________________________________________
+cash
+#include <cs50.h>
+#include <stdio.h>
+#include <math.h>
+
+//prompt the user for an amount of change
+
+int main(void)
+
+{
+    float d;
+    do
+    {
+        d = get_float("please enter some change as a float: ");
+    }
+    while (d <= 0);
+
+// use the largest coins possible while keeping track of of the coins used
+//as per the while loop we known that all values will be greater then 0 we can preceeed
+
+// first we need to convert the dollers to cents
+// the round function will round the cents
+
+    int c = round(d*100);
+//this will give us the starting point for our functions
+
+    int coins = 0;
+
+//to limit the number of coins used we try to take the max amount each time
+
+    while (c >= 25)
+    {
+        c = c - 25;
+        // we add one coin after the previous fucntion to keep count of the number
+        coins++;
+    }
+//now we just repeat this process with lower cash while adding the coins
+
+    while (c >= 10)
+    {
+        c = c - 10;
+        coins++;
+    }
+    while (c >= 5)
+    {
+        c = c - 5;
+        coins++;
+    }
+    while (c >= 1)
+    {
+        c = c - 1;
+        coins++;
+    }
+
+    printf("%i coins are needed", coins);
+} 
+week 2
+
